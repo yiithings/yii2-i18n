@@ -14,10 +14,14 @@ class GettextMessageSource extends \yii\i18n\GettextMessageSource
      */
     public $basePath;
     /**
+     * @var bool Replace path dash character (-) to underline.
+     */
+    public $replaceDashCharacter = false;
+    /**
      * @var bool Enable language directory. If set to true use path $basePath/$language/
      * (e.g @app/messages/en-US/en-US.mo), otherwise use $basePath (e.g. @app/messages/en-US.mo).
      */
-    public $enableDirectory = false;
+    public $enableLanguageDirectory = false;
     /**
      * @var bool Enable category file name. If set to true use path $basePath/$language/$category.mo
      * (e.g @app/messages/en-US/app.mo), otherwise use $basePath (e.g. @app/messages/en-US.mo).
@@ -107,14 +111,18 @@ class GettextMessageSource extends \yii\i18n\GettextMessageSource
     {
         $messageFiles = [];
         foreach ((array)$this->basePath as $basePath) {
-            $messageFile = Yii::getAlias($basePath) . '/' . $language;
-            if ($this->enableCategoryFile && ! $this->enableDirectory) {
+            $messageFile = $language;
+            if ($this->enableCategoryFile && ! $this->enableLanguageDirectory) {
                 $messageFile .= '_' . $category;
             } elseif ($this->enableCategoryFile) {
                 $messageFile .= '/' . $category;
-            } elseif ($this->enableDirectory) {
+            } elseif ($this->enableLanguageDirectory) {
                 $messageFile .= '/' . $language;
             }
+            if ($this->replaceDashCharacter) {
+                $messageFile = str_replace('-', '_', $messageFile);
+            }
+            $messageFile = Yii::getAlias($basePath) . '/' . $messageFile;
 
             if ($this->useMoFile) {
                 $messageFile .= self::MO_FILE_EXT;
