@@ -1,0 +1,32 @@
+{
+    "name": "yiithings/yii2-i18n",
+    "description": "Internationalization extension for Yii2 framework",
+    "type": "yii2-extension",
+    "keywords": ["yii2","extension","i18n","internationalization"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Panlatent",
+            "email": "panlatent@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.0",
+        "yiisoft/yii2": "*",
+        "gettext/gettext": "~4.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "yiithings\\devkit\\": "src/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.7",
+        "yiisoft/yii2-gii": "^2.0"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "tests\\": "tests/"
+        }
+    }
+}
