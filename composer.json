@@ -18,7 +18,10 @@
     "autoload": {
         "psr-4": {
             "yiithings\\i18n\\": "src/"
-        }
+        },
+        "files": [
+            "src/functions.php"
+        ]
     },
     "require-dev": {
         "phpunit/phpunit": "^5.7",
