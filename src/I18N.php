@@ -6,8 +6,6 @@ use Yii;
 
 class I18N extends \yii\i18n\I18N
 {
-    const EVENT_BEFORE_RECOGNIZE = 'beforeRecognize';
-    const EVENT_AFTER_RECOGNIZE = 'afterRecognize';
     /**
      * @var string
      */

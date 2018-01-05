@@ -34,3 +34,28 @@ Usage
 -----
 
 Once the extension is installed, simply use it in your code by  :
+
+Add the component to your application.
+```php
+'components' => [
+    'i18n' => [
+        'class' => 'yiithings\i18n\I18N'
+    ]
+]
+```
+
+Use functions:
+```php
+echo __('Username');
+__('Username'); // with echo
+echo _x('Username', 'yii');
+_xe('Username', 'yii'); // with echo
+```
+
+Edit messages:
+
+Use [PoEdit](https://poedit.net/) create or edit your messages. 
+`.po` and `.mo` files default save path is `@app/messages/`, e.g.
+`@app/messages/en-US.mo`. If you want to change path rule, please
+see [GettextMessageSource Class](src/GettextMessageSource.php).
+
