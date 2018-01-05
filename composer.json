@@ -17,7 +17,7 @@
     },
     "autoload": {
         "psr-4": {
-            "yiithings\\devkit\\": "src/"
+            "yiithings\\i18n\\": "src/"
         }
     },
     "require-dev": {

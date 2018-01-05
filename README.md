@@ -8,6 +8,8 @@ Yii2 I18N
 
 Internationalization extension for Yii2 framework.
 
+This extension use Gettext as message source and provide Web GUI(gii) editing message source.
+
 Installation
 ------------
 
