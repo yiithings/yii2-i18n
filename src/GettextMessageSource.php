@@ -30,6 +30,10 @@ class GettextMessageSource extends \yii\i18n\GettextMessageSource
      */
     public $enableCategoryFile = false;
     /**
+     * @var bool Disabled category.
+     */
+    public $disabledCategory = false;
+    /**
      * @var \Gettext\Translator
      */
     protected $translator;
@@ -43,7 +47,7 @@ class GettextMessageSource extends \yii\i18n\GettextMessageSource
             return false;
         }
 
-        if ($category === null || $category === '') {
+        if ($this->disabledCategory || $category === null || $category === '') {
             $translated = $this->translator->gettext($message);
         } else {
             $translated = $this->translator->dpgettext(null, $category, $message);
